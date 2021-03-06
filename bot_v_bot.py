@@ -13,7 +13,7 @@ def main():
     }
 
     while not game.is_over():
-       # time.sleep(0.3)
+        time.sleep(0.3)
 
         print(chr(27) +  "[2J")
         print_board(game.board)

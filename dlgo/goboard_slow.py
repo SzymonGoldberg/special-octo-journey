@@ -37,7 +37,7 @@ class GoString():
         self.liberties.remove(point)
 
     def add_liberty(self, point):
-        self.liberty.add(point)
+        self.liberties.add(point)
 
     def merged_with(self, go_string):
         assert go_string.color == self.color
@@ -69,12 +69,14 @@ class Board():
 
     def get(self, point):
         string = self._grid.get(point)
-        if string is None: return None
+        if string is None: 
+            return None
         return string.color
 
     def get_go_string(self, point):
         string = self._grid.get(point)
-        if string is None: return None
+        if string is None: 
+            return None
         return string
 
     def place_stone(self, player, point):
@@ -145,7 +147,7 @@ class GameState():
     def new_game(cls, board_size):
         if isinstance(board_size, int):
             board_size = (board_size, board_size)
-        board = Board(*board_size)
+        board = Board(board_size, board_size)
         return GameState(board, Player.black, None, None)
     
     def is_over(self):
@@ -188,6 +190,6 @@ class GameState():
             return False
         if move.is_pass or move.is_resign:
             return True
-        return (self.board.get(move.point) is None and
-        not self.is_move_self_capture(self.next_player, move) and
+        return (self.board.get(move.point) is None and  \
+        not self.is_move_self_capture(self.next_player, move) and \
         not self.does_move_violate_ko(self.next_player, move))
