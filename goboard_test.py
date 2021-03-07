@@ -79,7 +79,6 @@ class BoardTest(unittest.TestCase):
 
 class GameTest(unittest.TestCase):
     def test_new_game(self):
-        print("XD")
         start = GameState.new_game(19)
         next_state = start.apply_move(Move.play(Point(16, 16)))
 
