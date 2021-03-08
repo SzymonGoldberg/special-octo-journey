@@ -10,7 +10,7 @@ STONE_TO_CHAR = {
 def print_move(player, move):
     if move.is_pass:
         move_str = 'passes'
-    if move.is_resign:
+    elif move.is_resign:
         move_str = 'resign'
     else:
         move_str = '%s%d' % (COLS[move.point.col - 1], move.point.row)

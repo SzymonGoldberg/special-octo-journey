@@ -1,5 +1,5 @@
 from dlgo.agent.naive import RandomBot
-from dlgo import goboard_slow as goboard
+from dlgo import goboard as goboard
 from dlgo import gotypes
 from dlgo.utils import print_board, print_move
 import time
@@ -14,7 +14,7 @@ def main():
     }
 
     while not game.is_over():
-        time.sleep(0.3)
+        time.sleep(0.01)
 
         print(chr(27) + "[2J")
         print_board(game.board)
